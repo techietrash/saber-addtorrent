@@ -99,12 +99,13 @@ class A.BTN extends A.Gazelle
       @scan (e, link) =>
         @inject_rssimg(e, link)
 
+    ###
     # Torrent History
     waitForKeyElements "td[id^=hnr]", (e)=>
       id = e.attr("id").match(/hnr(\d+)/)[1]
       @inject_rssimg(e, id)
-
       false
+    ###
 
   build_link: (id)->
     "#{location.protocol}//#{location.host}/torrents.php?action=download&id=#{id}&authkey=#{@authkey}&torrent_pass=#{@passkey}"
@@ -124,7 +125,7 @@ class A.BIB extends A.Gazelle
 
   constructor: ->
     super
-    @rsskey = $("link[href*='rsskey']")[0].href.match(/rsskey=([^&]+)/)[1]
+    #@rsskey = $("link[href*='rsskey']")[0].href.match(/rsskey=([^&]+)/)[1]
 
   scan: (callback)->
     $(@constructor.SELECTOR).each ->
@@ -132,7 +133,7 @@ class A.BIB extends A.Gazelle
       callback.call null, $(this), id
 
   build_link: (id)->
-    "#{location.protocol}//#{location.host}/rss/download/#{id}?rsskey=#{@rsskey}"
+    "#{location.protocol}//#{location.host}/rss/download/#{id}?rsskey=#{A.Rc.bib_rsskey}"
 
 # SceneAccess.org
 class A.SCC extends A.Base

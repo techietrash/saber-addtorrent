@@ -1,10 +1,10 @@
 `// ==UserScript==
 // @name          saber-addtorrent
 // @description   add a torrent file to rutorrent from a PT site.
-// @version       1.3
+// @version       1.3.1
 // @author        Saber
 // @namespace     sabersalv
-// @updateURL     https://raw.github.com/SaberSalv/saber-addtorrent/master/dist/saber-addtorrent.meta.js
+// @updateURL     http://downloads.gutenye.com/saber/saber-addtorrent.meta.js
 // @icon          http://i.imgur.com/xEjOM.png
 //
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
@@ -24,39 +24,40 @@
 // @include       *://*passthepopcorn.me/collages.php*
 // @include       *://*passthepopcorn.me/bookmarks.php
 //
-// @match        *://sceneaccess.eu/browse*
-// @match        *://sceneaccess.eu/spam*
-// @match        *://sceneaccess.eu/archive*
-// @match        *://sceneaccess.eu/foreign*
-// @match        *://sceneaccess.eu/xxx*
+// @match         *://sceneaccess.eu/browse*
+// @match         *://sceneaccess.eu/spam*
+// @match         *://sceneaccess.eu/archive*
+// @match         *://sceneaccess.eu/foreign*
+// @match         *://sceneaccess.eu/xxx*
 // @match        *://sceneaccess.eu/details*
 //
-// @match        http://bibliotik.org/torrents/*
-// @match        http://bibliotik.org/collections/*
-// @match        http://bibliotik.org/publishers/*/torrents/*
-// @match        http://bibliotik.org/creators/*/torrents/*
-// @match        http://bibliotik.org/torrents?search*
+// @match         http://bibliotik.org/torrents/*
+// @match         http://bibliotik.org/collections/*
+// @match         http://bibliotik.org/publishers/*/torrents/*
+// @match         http://bibliotik.org/creators/*/torrents/*
+// @match         http://bibliotik.org/tags/*/torrents
+// @match         http://bibliotik.org/torrents?search*
 //
-// @match        http://animebyt.es/torrents.php*
-// @match        http://animebyt.es/torrents2.php*
-// @match        http://animebyt.es/collage.php*
-// @match        http://animebyt.es/series.php*
+// @match         http://animebyt.es/torrents.php*
+// @match         http://animebyt.es/torrents2.php*
+// @match         http://animebyt.es/collage.php*
+// @match         http://animebyt.es/series.php*
 //
-// @match        https://baconbits.org/torrents.php*
-// @match        https://baconbits.org/top10.php
+// @match         https://baconbits.org/torrents.php*
+// @match         https://baconbits.org/top10.php
 //
-// @match        https://stopthepress.es/torrents.php*
-// @match        https://stopthepress.es/collages.php*
-// @match        https://stopthepress.es/artist.php*
+// @match         https://stopthepress.es/torrents.php*
+// @match         https://stopthepress.es/collages.php*
+// @match         https://stopthepress.es/artist.php*
 //
-// @match        http://thepiratebay.se/browse/*
-// @match        http://thepiratebay.se/torrent/*
+// @match         http://thepiratebay.se/browse/*
+// @match         http://thepiratebay.se/torrent/*
 //
-// @match        http://www.demonoid.me/files/*
-// @match        http://www.demonoid.me/top_torrents.php
+// @match         http://www.demonoid.me/files/*
+// @match         http://www.demonoid.me/top_torrents.php
 //
-// @include      http://*d-addicts.com/forum/torrents.php*
-// @include      http://*d-addicts.com/forum/viewtopic*
+// @include       http://*d-addicts.com/forum/torrents.php*
+// @include       http://*d-addicts.com/forum/viewtopic*
 // ==/UserScript==
 `
 # <img data-checked="false" data-url="http://host/add" data-method="post" data-params="x" data-index="0" />
@@ -101,10 +102,13 @@ GM_config.init "Saber Addtorrent Configuration",
 
     counts: {
       label: "Counts", type: "int", default: 2, title: "number of addtorrent icons",
-      section: ["main setting", "seperate value by comma"] }
+      section: ["main setting", "seperate value by comma"] 
+    }
     labels: {label: "Labels", type: "text", default: "saber, saber1", title: "add to rutorrent under the label"}
     unchecked_icons: {label: "Unchecked Icons", type: "text",  default: "http://i.imgur.com/C8xAX.png, http://i.imgur.com/C8xAX.png", title: "icon for uncheched"}
     checked_icons: {label: "Checked Icons", type: "text", default: "http://i.imgur.com/Obx5Y.png, http://i.imgur.com/Obx5Y.png", title: "icon for checked"} 
+
+    bib_rsskey: {label: "BIB rsskey", type: "text", title: "rsskey at BIB"}
   },
   A.GM_CONFIG_STYLE
 
@@ -115,3 +119,4 @@ A.Rc.counts = GM_config.get("counts")
 A.Rc.labels = GM_config.get("labels").split(/[ ]*, */).reverse()
 A.Rc.unchecked_icons = GM_config.get("unchecked_icons").split(/[ ]*, */).reverse()
 A.Rc.checked_icons = GM_config.get("checked_icons").split(/[ ]*, */).reverse()
+A.Rc.bib_rsskey = GM_config.get("bib_rsskey")

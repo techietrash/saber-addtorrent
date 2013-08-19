@@ -1,4 +1,3 @@
-
 jasmine.getFixtures().fixturesPath = "/spec/fixtures";
 
 $.fn.outerHTML = function() {
@@ -18,7 +17,6 @@ A.Rc.labels = ["label0", "label1"];
 A.Rc.unchecked_icons = ["unicon0", "unicon1"];
 
 A.Rc.checked_icons = ["icon0", "icon1"];
-
 describe("main", function() {
   var SITES, host, tracker_klass, _i, _len, _ref, _results;
   SITES = [["what.cd", A.What], ["broadcasthe.net", A.BTN], ["passthepopcorn.me", A.PTP], ["sceneaccess.org", A.SCC], ["bibliotok.org", A.BIB], ["animebyt.es", A.AB], ["baconbits.org", A.BB], ["thepriatebay.se", A.TPB], ["demonoid.me", A.Demonoid]];
@@ -33,7 +31,6 @@ describe("main", function() {
   }
   return _results;
 });
-
 describe("A.What", function() {
   return describe("#scan", function() {
     return it("works", function() {

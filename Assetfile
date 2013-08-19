@@ -29,6 +29,7 @@ input "tmp/lib" do
   end
 end
 
+=begin
 # app-spade.js
 input "tmp/lib" do
   match "*.js" do
@@ -39,6 +40,7 @@ input "tmp/lib" do
     concat "#{APP_NAME}-spade.js"
   end
 end
+=end
 
 =begin
 input "spec" do
