@@ -1,10 +1,10 @@
 `// ==UserScript==
 // @name          saber-addtorrent
 // @description   add a torrent file to rutorrent from a PT site.
-// @version       1.3.1
+// @version       1.3.2
 // @author        Saber
 // @namespace     sabersalv
-// @updateURL     http://downloads.gutenye.com/saber/saber-addtorrent.meta.js
+// @updateURL     http://downloads.saber.li/saber/saber-addtorrent.meta.js
 // @icon          http://i.imgur.com/xEjOM.png
 //
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js

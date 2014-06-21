@@ -1,6 +1,6 @@
 #!/bin/bash
 
-S3="s3://downloads.gutenye.com/saber"
+S3="s3://downloads.saber.li/saber"
 VERSION=$(sed -rn 's/.*@version\s+([0-9.]+)/\1/p' lib/core.coffee)
 
 run() { echo $*; $*; }
