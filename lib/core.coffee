@@ -4,7 +4,7 @@
 // @version       1.3.1
 // @author        Saber
 // @namespace     sabersalv
-// @updateURL     http://downloads.gutenye.com/saber/saber-addtorrent.meta.js
+// @updateURL     http://dl.saber.li/saber/saber-addtorrent.meta.js
 // @icon          http://i.imgur.com/xEjOM.png
 //
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js

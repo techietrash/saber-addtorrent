@@ -1,4 +1,4 @@
-saber-addtorrent, add a torrent file to rutorrent inside the site.
+saber-addtorrent, send a torrent link to rutorrent inside the site.
 ================================================================
 
 |                |                                                    |
