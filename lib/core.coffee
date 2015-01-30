@@ -1,7 +1,7 @@
 `// ==UserScript==
 // @name          saber-addtorrent
 // @description   add a torrent file to rutorrent from a PT site.
-// @version       1.3.1
+// @version       1.3.2
 // @author        Saber
 // @namespace     sabersalv
 // @updateURL     http://dl.saber.li/saber/saber-addtorrent.meta.js
@@ -62,37 +62,37 @@
 `
 # <img data-checked="false" data-url="http://host/add" data-method="post" data-params="x" data-index="0" />
 
-pd = ()-> console.log.apply(console, arguments) 
-debug = ()-> console.log.apply(console, arguments) 
+pd = ()-> console.log.apply(console, arguments)
+debug = ()-> console.log.apply(console, arguments)
 puts = ()-> console.log.apply(console, arguments)
 
 class Saber
   @DEBUG = true
   @Rc = {}
   @STYLE = """
-img.rssimg { 
-  cursor: pointer; 
+img.rssimg {
+  cursor: pointer;
 }
   """
   @GM_CONFIG_STYLE = """
-#GM_config .config_var span { 
-  width: 25%; 
+#GM_config .config_var span {
+  width: 25%;
 }
 
 #GM_config .config_var input {
   width: 75%;
 }
   """
-  
+
   @fire: ->
-    setting = $("<button>saber-addtorrent configuration</button>") 
+    setting = $("<button>saber-addtorrent configuration</button>")
     setting.appendTo($("body"))
     setting.bind "click", ->
       GM_config.open()
 
 A = Saber
 
-GM_config.init "Saber Addtorrent Configuration", 
+GM_config.init "Saber Addtorrent Configuration",
   {
     base_url: {
       label: "Base URL", type: "text", default: "http://localhost/rutorrent", title: "rutorrent url",
@@ -102,11 +102,11 @@ GM_config.init "Saber Addtorrent Configuration",
 
     counts: {
       label: "Counts", type: "int", default: 2, title: "number of addtorrent icons",
-      section: ["main setting", "seperate value by comma"] 
+      section: ["main setting", "seperate value by comma"]
     }
     labels: {label: "Labels", type: "text", default: "saber, saber1", title: "add to rutorrent under the label"}
     unchecked_icons: {label: "Unchecked Icons", type: "text",  default: "http://i.imgur.com/C8xAX.png, http://i.imgur.com/C8xAX.png", title: "icon for uncheched"}
-    checked_icons: {label: "Checked Icons", type: "text", default: "http://i.imgur.com/Obx5Y.png, http://i.imgur.com/Obx5Y.png", title: "icon for checked"} 
+    checked_icons: {label: "Checked Icons", type: "text", default: "http://i.imgur.com/Obx5Y.png, http://i.imgur.com/Obx5Y.png", title: "icon for checked"}
 
     bib_rsskey: {label: "BIB rsskey", type: "text", title: "rsskey at BIB"}
   },
